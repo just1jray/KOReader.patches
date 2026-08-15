@@ -6,7 +6,7 @@ Do not install these on top of a Project: Title fork. Use an upstream plugin rel
 
 ## 2-pt-titlebar.lua
 
-Remaps the Project: Title titlebar and adds plugin rows to the plus menu. Layout matches this Kindle’s saved settings.
+Remaps the Project: Title titlebar and adds plugin rows to the plus menu. Actions prefer [Dispatcher](https://koreader.rocks/doc/modules/dispatcher.html) (the same hook as gestures). If that action is not registered, the row can fall back to a FileManager plugin method.
 
 | Slot | Tap | Hold | Icon |
 |------|-----|------|------|
@@ -27,6 +27,20 @@ Plus menu extras: Anna’s Archive, AppStore, Z-Library.
 3. Copy each file in `icons/` to `koreader/icons/`. Skip any name that already exists.
 4. Restart KOReader.
 
-### Customize
+### Add or change a plugin
 
-Edit `SLOTS` and `PLUS_MENU` at the top of `2-pt-titlebar.lua`, then restart.
+Edit `ACTIONS` at the top of `2-pt-titlebar.lua`. A row needs a Dispatcher action name and/or FileManager fallback:
+
+```lua
+news = {
+    icon = "tab_news",
+    label = "News",
+    dispatch = "the_dispatcher_action_name",
+    keys = { "newsdownloader" },
+    methods = { "onShowNews" },
+},
+```
+
+Then point a slot or plus-menu entry at that id (`left3 = { tap = "news" }` or `PLUS_MENU = { "news" }`) and restart.
+
+Dispatcher names come from the plugin’s `Dispatcher:registerAction("name", …)` call, or from stock KOReader (`history`, `favorites`, `folder_up`, `opds_show_catalog`, `exit`, …).
