@@ -12,8 +12,8 @@ Remaps the Project: Title titlebar and adds plugin rows to the plus menu. Action
 |------|-----|------|------|
 | left1 | Folder up | Root / locked home | `go_up` |
 | left2 | History | Collections | `history` |
-| left3 | Rakuyomi | OPDS | `tab_manga` |
-| center | Home | Anna’s Archive | `knight` (forced, custom center icon) |
+| left3 | Rakuyomi | — | `tab_manga` |
+| center | Home | — | `knight` (forced, custom center icon) |
 | right3 | Favorites | — | `favorites` |
 | right2 | Last document | — | `last_document` |
 | right1 | Plus menu (stock) | — | `plus` / `check` |
