@@ -218,7 +218,7 @@ local function patchProjectTitle(plugin)
         FileManager.getPlusDialogButtons = function(self)
             local title, buttons = orig_getPlus(self)
             local extras_added = false
-            for _, id in ipairs(PLUS_MENU) do
+            for _i, id in ipairs(PLUS_MENU) do
                 local action = ACTIONS[id]
                 if action and (action.dispatch or action.keys or action.tap) then
                     if not extras_added then
