@@ -30,8 +30,8 @@ local _ = require("gettext")
 local SLOTS = {
     left1  = { tap = "go_up",          hold = "go_root" },
     left2  = { tap = "history",        hold = "collections" },
-    left3  = { tap = "manga",          hold = "opds" },
-    center = { tap = "home",           hold = "annas", force_icon = "knight" },
+    left3  = { tap = "manga",          hold = "none" },
+    center = { tap = "home",           hold = "none", force_icon = "knight" },
     right3 = { tap = "favorites",      hold = "none" },
     right2 = { tap = "last_document",  hold = "none" },
 }
