@@ -31,7 +31,7 @@ local SLOTS = {
     left1  = { tap = "go_up",          hold = "go_root" },
     left2  = { tap = "history",        hold = "collections" },
     left3  = { tap = "manga",          hold = "opds" },
-    center = { tap = "home",           hold = "annas", force_hero = true },
+    center = { tap = "home",           hold = "annas", force_icon = "knight" },
     right3 = { tap = "favorites",      hold = "none" },
     right2 = { tap = "last_document",  hold = "none" },
 }
@@ -191,8 +191,8 @@ local function applySlots(titlebar)
             local tap_action = ACTIONS[cfg.tap] or ACTIONS.none
             local hold_action = ACTIONS[cfg.hold] or ACTIONS.none
             local icon = tap_action.icon or hold_action.icon
-            if slot == "center" and (cfg.force_hero or not icon) then
-                icon = "hero"
+            if slot == "center" and (cfg.force_icon or not icon) then
+                icon = cfg.force_icon or "hero"
             end
             if icon then
                 titlebar[slot .. "_icon"] = icon
