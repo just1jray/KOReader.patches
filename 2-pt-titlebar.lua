@@ -205,39 +205,42 @@ local function applySlots(titlebar)
     end
 end
 
+-- FileManager is a core module, so wrap its plus menu once at patch load.
+-- registerPatchPluginFunc runs on every FileManager/Reader plugin instance;
+-- wrapping getPlusDialogButtons there stacked Anna's / AppStore / Z-Library.
+if PLUS_MENU and #PLUS_MENU > 0 then
+    local orig_getPlus = FileManager.getPlusDialogButtons
+    FileManager.getPlusDialogButtons = function(self)
+        local title, buttons = orig_getPlus(self)
+        local extras_added = false
+        for _i, id in ipairs(PLUS_MENU) do
+            local action = ACTIONS[id]
+            if action and (action.dispatch or action.keys or action.tap) then
+                if not extras_added then
+                    table.insert(buttons, {})
+                    extras_added = true
+                end
+                table.insert(buttons, {
+                    {
+                        text = _(action.label or id),
+                        callback = function()
+                            UIManager:close(self.plus_dialog)
+                            runAction(action)
+                        end,
+                    },
+                })
+            end
+        end
+        return title, buttons
+    end
+end
+
 local function patchProjectTitle(plugin)
     local TitleBar = require("titlebar")
     local orig_TitleBar_init = TitleBar.init
     TitleBar.init = function(self)
         applySlots(self)
         orig_TitleBar_init(self)
-    end
-
-    if PLUS_MENU and #PLUS_MENU > 0 then
-        local orig_getPlus = FileManager.getPlusDialogButtons
-        FileManager.getPlusDialogButtons = function(self)
-            local title, buttons = orig_getPlus(self)
-            local extras_added = false
-            for _i, id in ipairs(PLUS_MENU) do
-                local action = ACTIONS[id]
-                if action and (action.dispatch or action.keys or action.tap) then
-                    if not extras_added then
-                        table.insert(buttons, {})
-                        extras_added = true
-                    end
-                    table.insert(buttons, {
-                        {
-                            text = _(action.label or id),
-                            callback = function()
-                                UIManager:close(self.plus_dialog)
-                                runAction(action)
-                            end,
-                        },
-                    })
-                end
-            end
-            return title, buttons
-        end
     end
 end
 
