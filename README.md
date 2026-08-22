@@ -44,3 +44,23 @@ news = {
 Then point a slot or plus-menu entry at that id (`left3 = { tap = "news" }` or `PLUS_MENU = { "news" }`) and restart.
 
 Dispatcher names come from the plugin’s `Dispatcher:registerAction("name", …)` call, or from stock KOReader (`history`, `favorites`, `folder_up`, `opds_show_catalog`, `exit`, …).
+
+## Style tweaks
+
+`styletweaks/` holds KOReader *user style tweaks* — plain `.css` files that show up under
+**Typeset (2nd icon) → Style tweaks → User style tweaks**. The filename becomes the menu
+title (underscores become spaces); subdirectories become submenus.
+
+| File | What it does |
+|------|--------------|
+| `Dyslexia_reading.css` | One toggle for dyslexia-friendly typography: forces the reader font over publisher `font-family`, left-aligns text, disables hyphenation, sets `line-height: 1.4`, and swaps first-line indents for paragraph spacing. |
+
+### Install
+
+Copy each file in `styletweaks/` to `koreader/styletweaks/`, then restart KOReader (the
+tweak menu is built at startup). Tap a tweak to enable it for the current book;
+long-press to make it the default for all books (shown with ★).
+
+Note: `Dyslexia_reading.css` sets `line-height`, which overrides the Line spacing slider
+in the bottom config bar. It also overlaps the built-in tweaks *Ignore publisher font
+families* and *Left align most text* — if you enable this file, those become redundant.
