@@ -53,7 +53,7 @@ title (underscores become spaces); subdirectories become submenus.
 
 | File | What it does |
 |------|--------------|
-| `Dyslexia_reading.css` | One toggle for dyslexia-friendly typography: forces the reader font over publisher `font-family`, left-aligns text, disables hyphenation, sets `line-height: 1.4`, and swaps first-line indents for paragraph spacing. |
+| `Reading_comfort.css` | One toggle for reading-comfort typography: forces the reader font over publisher `font-family`, left-aligns text, disables hyphenation, sets `line-height: 1.4`, and swaps first-line indents for paragraph spacing. |
 
 ### Install
 
@@ -61,6 +61,6 @@ Copy each file in `styletweaks/` to `koreader/styletweaks/`, then restart KORead
 tweak menu is built at startup). Tap a tweak to enable it for the current book;
 long-press to make it the default for all books (shown with ★).
 
-Note: `Dyslexia_reading.css` sets `line-height`, which overrides the Line spacing slider
+Note: `Reading_comfort.css` sets `line-height`, which overrides the Line spacing slider
 in the bottom config bar. It also overlaps the built-in tweaks *Ignore publisher font
 families* and *Left align most text* — if you enable this file, those become redundant.

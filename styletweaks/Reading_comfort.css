@@ -1,14 +1,16 @@
 /*
- * Dyslexia reading
+ * Reading comfort
  * KOReader user style tweak — drop in koreader/styletweaks/
- * Menu: Typeset (2nd icon) > Style tweaks > User style tweaks > "Dyslexia reading"
+ * Menu: Typeset (2nd icon) > Style tweaks > User style tweaks > "Reading comfort"
  * Tap = this book only. Long-press = default for all books (★).
  *
- * Bundles the typography changes that help with dyslexia into one toggle,
- * so the whole set can be A/B tested at once. Delete any block you don't want.
+ * Bundles spacing and alignment changes into one toggle so the whole set can be
+ * A/B tested at once. The spacing evidence (Zorzi 2012, Marinus 2016) holds up
+ * better than the letterform claims behind dyslexia-specific fonts.
+ * Delete any block you don't want.
  */
 
-/* 1. Force the reader font (OpenDyslexic) over publisher font-family.
+/* 1. Force the reader font over publisher font-family.
  *    Code stays monospace. */
 * { font-family: inherit !important; }
 listing, plaintext, xmp, samp, tt, kbd, pre, code { font-family: monospace !important; }
