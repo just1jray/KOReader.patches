@@ -1,0 +1,21 @@
+/*
+ * Hide Amazon fallback duplicates
+ * KOReader user style tweak — drop in koreader/styletweaks/
+ * Menu: Typeset (2nd icon) > Style tweaks > User style tweaks > "Hide Amazon fallbacks"
+ * Tap = this book only. Long-press = default for all books (★).
+ *
+ * Epubs converted from Amazon KF8/MOBI7 files keep both versions of some content
+ * (a chapter-heading image plus a small MOBI7 copy, an ornamental break image plus
+ * a "* * *" text copy, ...). The book's own CSS hides the extra copy, but that
+ * rule is lost when publisher style sheets are ignored, so both copies render.
+ *
+ * Calibre tags the fallback copies with data-AmznRemoved-M8. The class selectors
+ * below are a backup for books where that attribute selector doesn't match; they
+ * are specific to the Dungeon Crawler Carl epub and harmless elsewhere.
+ */
+
+[data-AmznRemoved-M8] { display: none !important; }
+
+img.heading-image-image1 { display: none !important; }
+p.ornamental-break-as-text { display: none !important; }
+span.social-profile-text { display: none !important; }
