@@ -55,6 +55,8 @@ title (underscores become spaces); subdirectories become submenus.
 |------|--------------|
 | `Reading_comfort.css` | One toggle for reading-comfort typography: forces the reader font over publisher `font-family`, left-aligns text, disables hyphenation, sets `line-height: 1.4`, and swaps first-line indents for paragraph spacing. |
 
+| `Hide_Amazon_fallbacks.css` | Hides the duplicate MOBI7 fallback content (small heading images, `* * *` text beside break images) left in epubs converted from Amazon files. Needed when publisher CSS is ignored, since that CSS is what normally hides them. |
+
 ### Install
 
 Copy each file in `styletweaks/` to `koreader/styletweaks/`, then restart KOReader (the
