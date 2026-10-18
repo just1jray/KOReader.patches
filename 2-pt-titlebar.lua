@@ -88,8 +88,8 @@ local ACTIONS = {
     manga = {
         icon = "tab_manga",
         label = "Rakuyomi",
-        -- Registered in newer Rakuyomi; older builds have no Dispatcher action.
-        dispatch = "rakuyomi_open_library",
+        -- Rakuyomi registers start_library_view; FileManager method kept as fallback.
+        dispatch = "start_library_view",
         keys = { "rakuyomi" },
         methods = { "openLibraryView" },
     },
